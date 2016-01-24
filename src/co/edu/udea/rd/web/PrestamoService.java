@@ -15,14 +15,28 @@ import org.springframework.stereotype.Component;
 import co.edu.udea.rd.bl.PrestamoBL;
 import co.edu.udea.rd.exception.MyException;
 
+
+/**
+* Clase que contiene los servicios para la tabla Préstamo
+**/
+
+
 @Component
 @Path("Prestamo")
 public class PrestamoService {
+
+        /**
+        * Inyección de dependencias 
+        **/
 
 	@Autowired
 	PrestamoBL prestamoBL;
 	
 	Logger log = Logger.getLogger(this.getClass());
+        
+        /**
+        * Método para actualizar un estado de préstamo en la base de datos. 
+        **/
 
 	@POST
 	@Produces(MediaType.TEXT_PLAIN)
@@ -36,6 +50,10 @@ public class PrestamoService {
 		}
 		return "Estado del prestamo modificado correctamente";
 	}
+        
+        /**
+        * Método para mandar una solicitud y procesarla, almacenándola en la base de datos 
+        **/
 
 	@POST
 	@Produces(MediaType.TEXT_PLAIN)
